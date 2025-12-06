@@ -298,7 +298,9 @@ export default function Dashboard() {
               <tbody>
                 {sortedLinks.map((link) => {
                   const base = import.meta.env.VITE_API_BASE.replace(/\/$/, "");
-                  const shortUrl = link.shortUrl || `${base}/${link.shortId}`;
+                  const shortUrl = `${base}/${link.shortId}` || link.shortUrl;
+                  console.log("BASE URL:", base);
+                  console.log("SHORT URL:", shortUrl);
                   return (
                     <tr
                       key={link.shortId}
