@@ -297,12 +297,8 @@ export default function Dashboard() {
               </thead>
               <tbody>
                 {sortedLinks.map((link) => {
-                  const shortUrl =
-                    link.shortUrl ||
-                    `${window.location.origin.replace(/\/$/, "")}/${
-                      link.shortId
-                    }`;
-
+                  const base = import.meta.env.VITE_API_BASE.replace(/\/$/, "");
+                  const shortUrl = link.shortUrl || `${base}/${link.shortId}`;
                   return (
                     <tr
                       key={link.shortId}

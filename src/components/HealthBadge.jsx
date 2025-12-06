@@ -10,7 +10,7 @@ export default function HealthBadge() {
 
     async function fetchHealth() {
       try {
-        const res = await api.get("/health");
+        const res = await api.get("/healthz");
         if (!isMounted) return;
         setStatus("ok");
         setUptime(Math.floor(res.data.uptimeSeconds ?? res.data.uptime ?? 0));
